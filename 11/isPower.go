@@ -23,7 +23,7 @@ func main() {
 			flag = true
 		}
 	}
-	if flag == true {
+	if flag {
 		fmt.Println("true")
 	} else {
 		fmt.Println("false")

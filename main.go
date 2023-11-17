@@ -1,24 +1,20 @@
 package main
 
-import "github.com/01-edu/z01"
+import "fmt"
 
 func main() {
-	str := "i am a girl "
+	a := 18
 
-	lastspace := len(str) - 1
-
-	for lastspace >= 0 && str[lastspace] == ' ' {
-		lastspace--
+	hexChars := "0123456789abcdef"
+	var changed []byte
+	if a == 0 {
+		fmt.Println(0)
 	}
 
-	end := lastspace
-
-	for lastspace >= 0 && str[lastspace] != ' ' {
-		lastspace--
+	for a > 0 {
+		remainder := a % 16
+		changed = append([]byte{hexChars[remainder]}, changed...)
+		a = a / 16
 	}
-	if lastspace >= 0 {
-		for i := lastspace + 1; i <= end; i++ {
-			z01.PrintRune(rune(str[i]))
-		}
-	}
+	fmt.Println(string(changed))
 }
